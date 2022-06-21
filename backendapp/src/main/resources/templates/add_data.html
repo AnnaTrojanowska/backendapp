@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add some details</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container text-center">
+        <div>
+            <h4>Uzupełnij dane</h4>
+        </div>
+            <form th:action="@{/add_user_data}" method="POST" th:object="${userData}" style="max-width:600px; margin: 0 auto;">
+                <div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Imię </label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" th:field="*{firstName}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Nazwisko </label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" th:field="*{lastName}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Adres </label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" th:field="*{address}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Miasto </label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" th:field="*{city}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Kod pocztowy </label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" th:field="*{post_code}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-4">Numer telefonu </label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" th:field="*{phone}" required/>
+                        </div>
+                    </div>
+                </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Dodaj</button>
+            </div>
+
+            </form>
+
+    </div>
+</body>
+</html>
