@@ -52,7 +52,7 @@ public class AppController  {
     @PostMapping("/add_user_data")
     public String addSomeUsersData(UserData userData){
         repoData.save(userData);
-        return "register_success";
+        return "add_data_success";
     }
 
     @GetMapping("/list_users")

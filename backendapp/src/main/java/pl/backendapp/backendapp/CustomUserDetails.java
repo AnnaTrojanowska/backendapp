@@ -5,7 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 public class CustomUserDetails implements ExtendedUserDetails {
 
-
+    private UserData userData;
     private User user;
 
     public CustomUserDetails(User user) {
@@ -63,8 +63,10 @@ public class CustomUserDetails implements ExtendedUserDetails {
         return true;
     }
 
+
+
     public String getFullName(){
-        return user.getLogin() +" "+user.getEmail();
+        return user.getLogin() +"!";
     }
 
 

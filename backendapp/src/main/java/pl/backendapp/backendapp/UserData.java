@@ -1,6 +1,7 @@
 package pl.backendapp.backendapp;
 
 import javax.persistence.*;
+import org.hibernate.*;
 
 @Entity
 @Table(name = "users_data")
@@ -10,6 +11,9 @@ public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_users_data;
+
+
+
 
     @Column(nullable = false, length = 45)
     private String first_name;
@@ -23,6 +27,8 @@ public class UserData {
     private String post_code;
     @Column(nullable = false, length = 9)
     private String phone;
+
+
 
     public Long getId_users_data() {
         return id_users_data;
