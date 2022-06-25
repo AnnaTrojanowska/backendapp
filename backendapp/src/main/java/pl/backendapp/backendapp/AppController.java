@@ -56,9 +56,19 @@ public class AppController  {
     }
 
     @GetMapping("/list_users")
-    public String viewUserList(Model model){
-        List<User> listUsers = repo.findAll();
-        model.addAttribute("listUsers", listUsers);
+    public String viewUser(){
+
         return "users";
+    }
+
+    @GetMapping("/send_form")
+    public String sendpackage(Model model){
+        List<UserData> listUsers = repoData.findAll();
+        model.addAttribute("listUsers", listUsers);
+        return "send_form";
+    }
+    @GetMapping("/spy")
+    public String spypackage(){
+        return "spy";
     }
 }

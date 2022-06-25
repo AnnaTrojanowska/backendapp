@@ -14,25 +14,21 @@
                 </p>
                 <input type="submit" value="Wyloguj">
             </form>
-        <h1>Lista użytkowników</h1>
          </div>
+
         <div>
-            <table class="table table-striped table-bordered">
-                <thead class="thead-dark">
-                    <tr>
-                      <th>Id</th>
-                        <th>E-mail</th>
-                        <th>Login</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="user: ${listUsers}">
-                        <td th:text="${user.id_users}">Id</td>
-                        <td th:text="${user.email}">E-mail</td>
-                        <td th:text="${user.login}">Login</td>
-                    </tr>
-                </tbody>
-            </table>
+                <p>
+                    Chcesz wysłać paczkę?
+                </p>
+            <button><a th:href="@{/send_form}">Wyślij paczkę</a></button>
+            <br>
+            <br>
+
+                <p>
+                    Możesz też podejrzeć dane paczki.
+                </p>
+            <button><a th:href="@{/spy}">Podejrzyj paczkę</a></button>
+
         </div>
 
     </div>
