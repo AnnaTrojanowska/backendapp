@@ -21,6 +21,9 @@ public class UserRepositoryTest {
     private UserDataRepository repoData;
 
     @Autowired
+    private SendRepository repoSend;
+
+    @Autowired
     private TestEntityManager entityManager;
 
     @Test
@@ -62,5 +65,15 @@ public class UserRepositoryTest {
         User user = repo.findByLogin(login);
 
         assertThat(user).isNotNull();
+    }
+
+    @Test
+    public void testSendPackage(){
+        Send send = new Send();
+        send.setUsers_users_details_id_users_details("1");
+        send.setGetUsers_users_details_id_users_details1("2");
+        send.setDelivery_man_id_delivery_man("1");
+
+        Send savedSend = repoSend.save(send);
     }
 }

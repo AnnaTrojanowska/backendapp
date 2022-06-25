@@ -15,11 +15,39 @@
                 <input type="submit" value="Wyloguj">
             </form>
          </div>
+        <div>
+            <h2>Lista pracowników</h2>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>Adres</th>
+                    <th>Miasto</th>
+                    <th>Kod pocztowy</th>
+                    <th>Numer telefonu</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="userData: ${listUsers}">
+                    <td th:text="${userData.id_users_data}">Id</td>
+                    <td th:text="${userData.firstName}">Imię</td>
+                    <td th:text="${userData.lastName}">Nazwisko</td>
+                    <td th:text="${userData.address}">Adres</td>
+                    <td th:text="${userData.city}">Miasto</td>
+                    <td th:text="${userData.post_code}">Kod pocztowy</td>
+                    <td th:text="${userData.phone}">Numer telefonu</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div>
                 <p>
                     Chcesz wysłać paczkę?
                 </p>
+            <p>Jeśli tak, zapamiętaj numery id, z tabeli, dla nadawcy i odbiorcy</p>
             <button><a th:href="@{/send_form}">Wyślij paczkę</a></button>
             <br>
             <br>

@@ -59,22 +59,21 @@ public class AppController  {
     }
 
     @GetMapping("/list_users")
-    public String viewUser(){
+    public String viewUser(Model model){
+        List<UserData> listUsers = repoData.findAll();
+        model.addAttribute("listUsers", listUsers);
 
         return "users";
     }
 
     @GetMapping("/send_form")
     public String sendpackage(Model model){
-        //tworzenie paczki
-        List<UserData> listUsers = repoData.findAll();
-        model.addAttribute("listUsers", listUsers);
 
         model.addAttribute("send", new Send());
         return "send_form";
     }
 
-    @GetMapping("/send_process")
+    @PostMapping("/send_process")
     public String sendprocess(Send send){
         repoSend.save(send);
         return "send_success";
