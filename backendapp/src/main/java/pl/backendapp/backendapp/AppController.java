@@ -21,6 +21,9 @@ public class AppController  {
     @Autowired
     private UserDataRepository repoData;
 
+    @Autowired
+    private SendRepository repoSend;
+
     @GetMapping("")
     public String viewHomePage(){
         return "index";
@@ -63,9 +66,18 @@ public class AppController  {
 
     @GetMapping("/send_form")
     public String sendpackage(Model model){
+        //tworzenie paczki
         List<UserData> listUsers = repoData.findAll();
         model.addAttribute("listUsers", listUsers);
+
+        model.addAttribute("send", new Send());
         return "send_form";
+    }
+
+    @GetMapping("/send_process")
+    public String sendprocess(Send send){
+        repoSend.save(send);
+        return "send_success";
     }
     @GetMapping("/spy")
     public String spypackage(){
