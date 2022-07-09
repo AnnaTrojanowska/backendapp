@@ -82,4 +82,9 @@ public class AppController  {
     public String spypackage(){
         return "spy";
     }
+
+    @GetMapping("/delivery")
+    public String delivery(){
+        return "delivery";
+    }
 }
